@@ -1,0 +1,29 @@
+<BLCMM v="1">
+#<!!!You opened a file saved with BLCMM in FilterTool. Please update to BLCMM to properly open this file!!!>
+	<head>
+		<type name="BL2" offline="false"/>
+		<profiles>
+			<profile name="default" current="true"/>
+		</profiles>
+	</head>
+	<body>
+		<category name="root">
+			<comment></BLCMM></comment>
+			<comment>&amp;</comment>
+			<comment></hotfix></comment>
+			<comment>&#00;</comment>
+			<comment><hotfix level="None" name="Hotfix"></comment>
+			<comment>    <code profiles="default">This is still in the comment</comment>
+			<comment><code	>'"'"'"'"'</comment>
+			<comment>\/\/\/\/\/\/</comment>
+			<comment><!-- This is not an XML comment --></comment>
+			<comment><comment	></category><category name="Not really a new category"><comment	></comment>
+			<comment></body><head></comment>
+			<comment></head></comment>
+			<comment>#<!!!You opened a file saved with BLCMM in FilterTool. Please update to BLCMM to properly open this file!!!></comment>
+		</category>
+	</body>
+</BLCMM>
+
+#Commands:
+

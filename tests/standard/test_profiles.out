@@ -1,0 +1,18 @@
+<BLCMM v="1">
+	<head>
+		<type name="BL2" offline="false"/>
+		<profiles>
+			<profile name="a"/>
+			<profile name="-" current="true"/>
+			<profile name="a b"/>
+			<profile name="-_-_-_-_-"/>
+			<profile name="BLCMM"/>
+			<profile name="exec a"/>
+			<profile name="say 11111111111111111111"/>
+		</profiles>
+	</head>
+	<body>
+		<category name="root">
+		</category>
+	</body>
+</BLCMM>

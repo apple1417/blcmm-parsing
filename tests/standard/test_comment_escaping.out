@@ -1,0 +1,25 @@
+<BLCMM v="1">
+	<head>
+		<type name="BL2" offline="false"/>
+		<profiles>
+			<profile name="default" current="true"/>
+		</profiles>
+	</head>
+	<body>
+		<category name="root">
+			<comment>&lt;/BLCMM&gt;</comment>
+			<comment>&amp;amp;</comment>
+			<comment>&lt;/hotfix&gt;</comment>
+			<comment>&amp;#00;</comment>
+			<comment>&lt;hotfix level="None" name="Hotfix"&gt;</comment>
+			<comment>    &lt;code profiles="default"&gt;This is still in the comment</comment>
+			<comment>&lt;code	&gt;&apos;&quot;&apos;&quot;&apos;&quot;&apos;&quot;&apos;</comment>
+			<comment>\/\/\/\/\/\/</comment>
+			<comment>&lt;!-- This is not an XML comment --&gt;</comment>
+			<comment>&lt;comment	&gt;&lt;/category&gt;&lt;category name="Not really a new category"&gt;&lt;comment	&gt;</comment>
+			<comment>&lt;/body&gt;&lt;head&gt;</comment>
+			<comment>&lt;/head&gt;</comment>
+			<comment>#&lt;!!!You opened a file saved with BLCMM in FilterTool. Please update to BLCMM to properly open this file!!!&gt;</comment>
+		</category>
+	</body>
+</BLCMM>

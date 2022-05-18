@@ -1,0 +1,26 @@
+<BLCMM v="1">
+	<head>
+		<type name="BL2" offline="false"/>
+		<profiles>
+			<profile name="default" current="true"/>
+		</profiles>
+	</head>
+	<body>
+		<category name="root">
+			<comment>This is a comment</comment>
+			<category name="Category A" locked="true">
+				<code profiles="">set A B C</code>
+			</category>
+			<category name="Category B" MUT="true">
+				<category name="MUT 1">
+					<hotfix name="Hotfix" package="GD_Siren_Streaming">
+						<code profiles="">set D E F</code>
+					</hotfix>
+				</category>
+				<category name="MUT 2">
+					<code profiles="">set G H I</code>
+				</category>
+			</category>
+		</category>
+	</body>
+</BLCMM>

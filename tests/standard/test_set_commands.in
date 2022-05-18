@@ -1,0 +1,32 @@
+<BLCMM v="1">
+#<!!!You opened a file saved with BLCMM in FilterTool. Please update to BLCMM to properly open this file!!!>
+	<head>
+		<type name="BL2" offline="false"/>
+		<profiles>
+			<profile name="default" current="true"/>
+		</profiles>
+	</head>
+	<body>
+		<category name="root">
+			<comment>set </comment>
+			<comment>set a </comment>
+			<code profiles="default">set a b </code>
+			<code profiles="default">set a b c</code>
+			<comment>set <body></comment>
+			<code profiles="default">set a b <body></code>
+			<code profiles="default">set "/\"' &apos; ><</code>
+			<code profiles="default">set <BLCMM v="1"> #<!!!You opened a file saved with BLCMM in FilterTool. Please update to BLCMM to properly open this file!!!> <head> <type offline="false" name="BL2"/> <profiles> <profile current="true" name="default"/> </profiles> </head> <body> <category name="root"> </category> </body> </BLCMM> #Commands:</code>
+		</category>
+	</body>
+</BLCMM>
+
+#Commands:
+set 
+set a 
+set a b 
+set a b c
+set <body>
+set a b <body>
+set "/\"' &apos; ><
+set <BLCMM v="1"> #<!!!You opened a file saved with BLCMM in FilterTool. Please update to BLCMM to properly open this file!!!> <head> <type offline="false" name="BL2"/> <profiles> <profile current="true" name="default"/> </profiles> </head> <body> <category name="root"> </category> </body> </BLCMM> #Commands:
+

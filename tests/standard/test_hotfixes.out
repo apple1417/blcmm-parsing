@@ -1,0 +1,30 @@
+<BLCMM v="1">
+	<head>
+		<type name="BL2" offline="false"/>
+		<profiles>
+			<profile name="default" current="true"/>
+		</profiles>
+	</head>
+	<body>
+		<category name="root">
+			<hotfix name="Hotfix" level="None">
+				<code profiles="default">set a &amp;amp; </code>
+			</hotfix>
+			<hotfix name="Hotfix" level="Sage_PowerStation_P">
+				<code profiles="default">set a b </code>
+			</hotfix>
+			<hotfix name="Hotfix" level="None">
+				<code profiles="default">set a \ \ \</code>
+				<code profiles="default">set a b &lt;/hotfix&gt;</code>
+				<code profiles="default">set a b </code>
+			</hotfix>
+			<hotfix name="Hotfix" package="GD_Assassin_Streaming">
+				<code profiles="default">set &apos; &quot;&quot; </code>
+			</hotfix>
+			<hotfix name="Hotfix" level="None">
+				<code profiles="default">set_cmp a b c d</code>
+				<code profiles="default">set_cmp a b c d e f g</code>
+			</hotfix>
+		</category>
+	</body>
+</BLCMM>
