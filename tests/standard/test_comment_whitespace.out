@@ -1,0 +1,41 @@
+<BLCMM v="1">
+	<head>
+		<type name="BL2" offline="false"/>
+		<profiles>
+			<profile name="default" current="true"/>
+		</profiles>
+	</head>
+	<body>
+		<category name="root">
+			<comment>   	  	   </comment>
+			<comment>	</comment>
+			<comment>     		  	 	</comment>
+			<comment>	</comment>
+			<comment>     		 		  </comment>
+			<comment>	</comment>
+			<comment>     		 		  </comment>
+			<comment>	</comment>
+			<comment>     		 				</comment>
+			<comment>	</comment>
+			<comment>     	 		  </comment>
+			<comment>	</comment>
+			<comment>     	     </comment>
+			<comment>	</comment>
+			<comment>     			 			</comment>
+			<comment>	</comment>
+			<comment>     		 				</comment>
+			<comment>	</comment>
+			<comment>     			  	 </comment>
+			<comment>	</comment>
+			<comment>     		 		  </comment>
+			<comment>	</comment>
+			<comment>     		  	  </comment>
+			<comment>	</comment>
+			<comment>     	    	</comment>
+			<comment>	</comment>
+			<comment>  </comment>
+			<comment></comment>
+			<comment></comment>
+		</category>
+	</body>
+</BLCMM>

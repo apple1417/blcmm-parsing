@@ -1,0 +1,13 @@
+<BLCMM v="1">
+	<head>
+		<type name="BL2" offline="false"/>
+		<profiles>
+			<profile name="&apos;&quot;&amp;amp;&quot;/" current="true"/>
+			<profile name="&quot;&gt;&lt;/profile&lt;"/>
+		</profiles>
+	</head>
+	<body>
+		<category name="root">
+		</category>
+	</body>
+</BLCMM>

@@ -5,7 +5,10 @@ reasonably, just adding an additional step to convert them to valid XML anyway. 
 reference C++ preprocessor, as well as a series of test cases and a Python test script to run them.
 
 ## Format Rules
-The main format differences between BLCMM files and XML are as follows:
+The main format differences between BLCMM files and XML can be summaried in the following rules.
+
+The handling of any situations which cause BLCMM to fail loading a file is considered undefined
+behaviour. Known causes are also listed below.
 
 - The filtertool warning should be removed, or converted to an XML comment. The warning is always on
   it's own line (leading/trailing whitespace allowed), and is always the exact string:
@@ -25,11 +28,14 @@ The main format differences between BLCMM files and XML are as follows:
     presense of the tag at all, regardless of opening/closing, whitespace, or attributes.
   - If an "inner tag" has spaces between the tag name or last attribute and the closing `>` or `/>`,
     it's considered undefined behaviour. Other whitespace, or no spaces at all, is allowed.
+  Additionally, a few specific tags have extra format rules:
+  - `code` tags' text must always start with the exact string `set ` (including the space). If the
+    parent tag is a `hotfix`, `set_cmp` (no space needed) is also an acceptable start. In either
+    case, the text must also contain at least two whitespace-seperated "words" (just groups of
+    non-whitespace characters) after the starting string. Any of these rules being broken results in
+    undefined behaviour.
 - After the closing root tag, the file contains arbitrary commands, which should all be removed or
   converted into XML comments.
-
-Any situations not listed above which cause BLCMM to fail loading a file are also considered
-undefined behaviour.
 
 The test cases follow these rules too - i.e. you will never be given a file with the filtertool
 warning split across two lines, but as tags aren't specified you may be given a file which doesn't

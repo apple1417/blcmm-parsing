@@ -1,0 +1,20 @@
+<BLCMM v="1">
+#<!!!You opened a file saved with BLCMM in FilterTool. Please update to BLCMM to properly open this file!!!>
+	<head>
+		<type name="BL2" offline="false"/>
+		<profiles>
+			<profile name="default" current="true"/>
+		</profiles>
+	</head>
+	<body>
+		<category name="root">
+			<comment>set a b c</comment>
+			<code profiles="default">set set set set set</code>
+		</category>
+	</body>
+</BLCMM>
+
+#Commands:
+set a b c
+set set set set set
+
