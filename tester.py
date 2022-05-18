@@ -39,7 +39,8 @@ def canonicalize_possibly_empty(*args: Any, **kwargs: Any) -> str | None:
     Args: Passthroughs to `ET.canonicalize`.
     """
     kwargs = {
-        "strip_text": True
+        "strip_text": True,
+        "with_comments": False,
     } | kwargs
     try:
         return ET.canonicalize(*args, **kwargs)  # type: ignore
