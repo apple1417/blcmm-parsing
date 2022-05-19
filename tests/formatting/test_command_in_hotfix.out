@@ -1,0 +1,15 @@
+<BLCMM v="1">
+	<head>
+		<type name="BL2" offline="false"/>
+		<profiles>
+			<profile name="default" current="true"/>
+		</profiles>
+	</head>
+	<body>
+		<category name="root">
+			<hotfix name="Hotfix" level="None">
+				<code profiles="">set a b &lt;/code&gt;&lt;code profiles=&quot;&quot;&gt;set a b c</code>
+			</hotfix>
+		</category>
+	</body>
+</BLCMM>

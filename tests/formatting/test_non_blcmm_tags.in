@@ -1,0 +1,8 @@
+<test>
+	<inner />
+	<parent>
+		<child><BLCMM></child>
+	</parent>
+</test>
+
+Extra content

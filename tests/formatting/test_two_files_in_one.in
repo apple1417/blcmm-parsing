@@ -1,0 +1,33 @@
+<BLCMM v="1">
+#<!!!You opened a file saved with BLCMM in FilterTool. Please update to BLCMM to properly open this file!!!>
+	<head>
+		<type name="BL2" offline="false"/>
+		<profiles>
+			<profile name="file 1" current="true"/>
+		</profiles>
+	</head>
+	<body>
+		<category name="First File">
+			<comment>A B C</comment>
+		</category>
+	</body>
+</BLCMM>
+
+First Command Block
+
+<BLCMM v="1">
+#<!!!You opened a file saved with BLCMM in FilterTool. Please update to BLCMM to properly open this file!!!>
+	<head>
+		<type name="BL2" offline="false"/>
+		<profiles>
+			<profile name="file 2" current="true"/>
+		</profiles>
+	</head>
+	<body>
+		<category name="Second File">
+			<code profiles="">set d e f</comment>
+		</category>
+	</body>
+</BLCMM>
+
+Second Command Block

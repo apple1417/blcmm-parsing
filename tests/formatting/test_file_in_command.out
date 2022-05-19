@@ -1,0 +1,15 @@
+<BLCMM v="1">
+	<head>
+		<type name="BL2" offline="false"/>
+		<profiles>
+			<profile name="default" current="true"/>
+		</profiles>
+	</head>
+	<body>
+		<category name="root">
+			<hotfix name="Hotfix" level="None">
+				<code profiles="">set a b &lt;BLCMM v=&quot;1&quot;&gt; #&lt;!!!You opened a file saved with BLCMM in FilterTool. Please update to BLCMM to properly open this file!!!&gt; &lt;head&gt; &lt;type name=&quot;BL2&quot; offline=&quot;false&quot;/&gt; &lt;profiles&gt; &lt;profile name=&quot;default&quot; current=&quot;true&quot;/&gt; &lt;/profiles&gt; &lt;/head&gt; &lt;body&gt; &lt;category name=&quot;root&quot;&gt; &lt;/category&gt; &lt;/body&gt; &lt;/BLCMM&gt; #Commands:</code>
+			</hotfix>
+		</category>
+	</body>
+</BLCMM>

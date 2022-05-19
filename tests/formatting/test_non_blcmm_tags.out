@@ -1,0 +1,6 @@
+<test>
+	<inner />
+	<parent>
+		<child>&lt;BLCMM&gt;</child>
+	</parent>
+</test>
