@@ -2,7 +2,7 @@
 While BLCMM files look like XML with a few things appended, for some inexplicable reason they use
 completely custom escaping logic. This requires either writing a completely new parser, or more
 reasonably, just adding an additional step to convert them to valid XML anyway. This repo contains a
-reference C++ preprocessor, as well as a series of test cases and a Python test script to run them.
+reference C++ preprocessor, as well as a series of test cases and a pytest script to run them.
 
 ## Format Rules
 The main format differences between BLCMM files and XML can be summaried in the following rules.
@@ -42,17 +42,26 @@ warning split across two lines, but as tags aren't specified you may be given a 
 use the standard BLCMM ones.
 
 ## Using the Tester
-To use the tester, simply simply run `tester.py`, with a command to run your test program as the
-first argument. Your test program should take a BLCMM file as stdin, output equivalent XML to
-stdout, and then exit with code 0. A non-zero exit code will be considered a crash. There is a
-default timeout of 10s, which will also cause a failure, use the `--timeout` argument to overwrite
-it if needed. Stderr is not touched, and should still be piped through to your terminal, to print
-any exceptions or if you need debug logging. There are no rules to the formatting of the outputted
-XML (outside of it must be valid), it will be canonicalized (with XML comments stripped) before
-being compared.
+To use the tester, simply run pytest, adding the `--program` arg with a command to run your test
+program. If your test program requires arguments, you can add them too, `--program` consumes all
+remaining command line arguments (so make sure to put it last).
 
-### Test Cases
-The test cases can be split into three categories.
+```
+pytest tests --program my_parser --test-mode
+```
+
+Your test program should take a BLCMM file as stdin, output equivalent XML to stdout, and then exit
+with code 0. A non-zero exit code will be considered a failure. There is a default timeout of 10s,
+which will also cause a failure, use the `--timeout` argument to overwrite it if needed.
+
+Stderr is captured, and pytest will output it on failed tests by default, so you can use it for
+debug logging if needed.
+
+There are no rules to the formatting of the outputted XML (outside of it must be valid), it will be
+canonicalized (with XML comments stripped) before being compared.
+
+### Test Categories
+The test cases are split into three categories.
 
 Category     | Contents
 :------------|:---------
@@ -60,4 +69,8 @@ Category     | Contents
 `edited`     | Files which were manually edited, but which still successfully load and re-save without change.
 `formatting` | Files which follow the formatting rules above, but can't be loaded by BLCMM, can be loaded but change on re-save, or just plain aren't BLCMM files.
 
-You can use the `--categories` argument to select which categories to run - it defaults to all.
+You can use pytest's standard filtering methods to select which ones to run - using `-k` is easiest.
+
+```
+pytest tests -k "edited" --program my_other_parser
+```
