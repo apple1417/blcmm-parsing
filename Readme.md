@@ -52,11 +52,10 @@ use the standard BLCMM ones.
 
 ## Using the Tester
 To use the tester, simply run pytest, adding the `--program` arg with a command to run your test
-program. If your test program requires arguments, you can add them too, `--program` consumes all
-remaining command line arguments (so make sure to put it last).
+program. If your test program requires arguments, add extra `--program` args.
 
 ```
-pytest tests --program my_parser --test-mode
+pytest tests --program "my_parser" --program "--test-mode"
 ```
 
 Your test program should take a BLCMM file as stdin, output equivalent XML to stdout, and then exit

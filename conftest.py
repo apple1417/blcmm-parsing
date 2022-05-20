@@ -1,4 +1,3 @@
-import argparse
 import subprocess
 import sys
 from pathlib import Path
@@ -42,7 +41,7 @@ def test_runner(pytestconfig: Config) -> Callable[[Path], str]:
 def pytest_addoption(parser: Parser) -> None:
     parser.addoption(
         "--program",
-        nargs=argparse.REMAINDER,
+        action="append",
         required=True,
         help="The program to invoke. Specify multiple times if you need arguments."
     )

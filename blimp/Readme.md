@@ -182,7 +182,7 @@ As with the regular BLCMM parsing, this repo also has a few test cases for BLIMP
 be run using pytest and the `--program` arg.
 
 ```
-pytest blimp/tests --program my_blimp_parser --test-mode
+pytest blimp/tests --program "my_blimp_parser"
 ```
 
 As before, your test program should take a file on stdin, output to stdout, and exit with code 0.
@@ -198,3 +198,5 @@ a json mapping of extracted tags and values.
     ]
 }
 ```
+
+Tag names may be output in any case, but tag values must be case preserving.
