@@ -3,7 +3,7 @@
 		<type name="BL2" offline="false"/>
 		<profiles>
 			<profile name="&apos;&quot;&amp;amp;&quot;/" current="true"/>
-			<profile name="&quot;&gt;&lt;/profile&lt;"/>
+			<profile name="&quot;&gt;&lt;/profile&gt;"/>
 		</profiles>
 	</head>
 	<body>

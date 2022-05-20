@@ -1,0 +1,16 @@
+<BLCMM        v="1"           >
+#<!!!You opened a file saved with BLCMM in FilterTool. Please update to BLCMM to properly open this file!!!>
+	<head       >
+		<type    name="BL2"    offline="false"    />
+		<profiles>
+			<profile   current="true"     name="default"          />
+		</profiles>
+	</head  >
+	<body		>
+		<category	  	name="root"   >
+			<code    	profiles="default">set a b c</code  >
+		</category	 >
+	</body>
+</BLCMM	 >
+
+#Commands:

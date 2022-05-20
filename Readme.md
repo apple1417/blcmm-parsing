@@ -15,6 +15,7 @@ behaviour. Known causes are also listed below.
   ```
   #<!!!You opened a file saved with BLCMM in FilterTool. Please update to BLCMM to properly open this file!!!>
   ```
+  A warning surrounded with any other characters (e.g. one inside a comment) should not be removed.
 - Attribute values are always surrounded with double quotes. The only escape sequence is `\"`,
   evaluating to a double quote. Backslashes elsewhere are just interpreted literally; a value ending
   with a backslash is considered undefined behaviour.
@@ -34,6 +35,8 @@ behaviour. Known causes are also listed below.
     case, the text must also contain at least two whitespace-seperated "words" (just groups of
     non-whitespace characters) after the starting string. Any of these rules being broken results in
     undefined behaviour.
+- After properly escaping attribute values and text content, any situations where there are either
+  multiple or no tags on a single line are considered undefined behaviour.
 - After the closing root tag, the file contains arbitrary commands, which should all be removed or
   converted into XML comments.
 
