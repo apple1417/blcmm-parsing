@@ -5,10 +5,7 @@ reasonably, just adding an additional step to convert them to valid XML anyway. 
 reference C++ preprocessor, as well as a series of test cases and a pytest script to run them.
 
 ## Format Rules
-The main format differences between BLCMM files and XML can be summaried in the following rules.
-
-The handling of any situations which cause BLCMM to fail loading a file is considered undefined
-behaviour. Known causes are also listed below.
+The main format differences between BLCMM files and XML can be summarized in the following rules.
 
 - The filtertool warning should be removed, or converted to an XML comment. The warning is always on
   it's own line (leading/trailing whitespace allowed), and is always the exact string:
@@ -22,23 +19,26 @@ behaviour. Known causes are also listed below.
 - Nested elements always have the opening outer tag on one line, each inner tag on its own line,
   and the closing outer tag on another. Whitespace between inner tags is ignored.
 - Tags with text content are always entirely on a single line, and interpret all characters between
-  the opening tag and closing tag literally. Other tags are allowed to appear within this range,
-  with a few exceptions:
-  - If the text content contains an "inner tag" of the same type (e.g. the string `<comment>` in the
-    text content of a `comment` tag), it's considered undefined behaviour. This applies to any
-    presense of the tag at all, regardless of opening/closing, whitespace, or attributes.
-  - If an "inner tag" has spaces between the tag name or last attribute and the closing `>` or `/>`,
-    it's considered undefined behaviour. Other whitespace, or no spaces at all, is allowed.
-  Additionally, a few specific tags have extra format rules:
-  - `code` tags' text must always start with the exact string `set ` (including the space). If the
-    parent tag is a `hotfix`, `set_cmp` (no space needed) is also an acceptable start. In either
-    case, the text must also contain at least two whitespace-seperated "words" (just groups of
-    non-whitespace characters) after the starting string. Any of these rules being broken results in
-    undefined behaviour.
+  the opening tag and closing tag literally. Other tags *are* allowed to appear within this range.
 - After properly escaping attribute values and text content, any situations where there are either
   multiple or no tags on a single line are considered undefined behaviour.
 - After the closing root tag, the file contains arbitrary commands, which should all be removed or
   converted into XML comments.
+
+Additionally, the handling of any situations which cause BLCMM to fail loading a file may also be
+considered undefined behaviour (though in most cases there will be one obvious way to handle them).
+Known causes are listed below:
+- If the text content of a tag contains an "inner tag" of the same type (e.g. the string `<example>`
+  in the text content of a `example` tag), BLCMM will fail to load it. This applies to any presense
+  of the tag at all, regardless of opening/closing, whitespace, or attributes.
+- If an "inner tag" has spaces between the tag name or last attribute and the closing `>` or `/>`,
+  BLCMM will fail to load it (even if it's not a BLCMM tag such as `</font >`). Other whitespace,
+  or no spaces at all, is allowed.
+- `code` tags' text must always start with the exact string `set ` (including the space). If the
+  parent tag is a `hotfix`, `set_cmp` (no space needed) is also an acceptable start. In either
+  case, the text must also contain at least two whitespace-seperated "words" (just groups of
+  non-whitespace characters) after the starting string. Either of these rules being broken results
+  in BLCMM no longer being able to load the file.
 
 The test cases follow these rules too - i.e. you will never be given a file with the filtertool
 warning split across two lines, but as tags aren't specified you may be given a file which doesn't
