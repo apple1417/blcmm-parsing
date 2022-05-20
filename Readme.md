@@ -1,4 +1,10 @@
 # BLCMM Parsing
+
+- [BLCMM Parsing](#blcmm-parsing)
+  - [Format Rules](#format-rules)
+  - [Using the Tester](#using-the-tester)
+    - [Test Categories](#test-categories)
+
 While BLCMM files look like XML with a few things appended, for some inexplicable reason they use
 completely custom escaping logic. This requires either writing a completely new parser, or more
 reasonably, just adding an additional step to convert them to valid XML anyway. This repo contains a
