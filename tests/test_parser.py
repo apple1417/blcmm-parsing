@@ -2,15 +2,12 @@ import subprocess
 import sys
 import warnings
 import xml.etree.ElementTree as ET
-import xml.parsers.expat.errors as xp_errors
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterator
 
 import pytest
 from pytest import Config
-
-NO_ELEMENTS_CODE: int = xp_errors.codes[xp_errors.XML_ERROR_NO_ELEMENTS]
 
 TESTS_FOLDER: Path = Path(__file__).parent
 INPUT_SUFFIX: str = "in"
@@ -26,9 +23,11 @@ class ParserTestFiles:
         return ".".join(self.input.relative_to(TESTS_FOLDER).with_suffix("").parts)
 
 
-def canonicalize_possibly_empty(xml: str) -> str:
+def canonicalize(xml: str) -> str:
     """
-    Wrapper around `ET.canonicalize` which allows files to be completely empty.
+    Wrapper around `ET.canonicalize` which dumps invalid files to stderr when parsing fails.
+
+    Also contains default canonicalize args for better comparisons
 
     Args:
         xml: The xml string to canonicalize.
@@ -39,11 +38,8 @@ def canonicalize_possibly_empty(xml: str) -> str:
     try:
         return ET.canonicalize(xml, strip_text=True, with_comments=False)
     except ET.ParseError as ex:
-        if ex.code == NO_ELEMENTS_CODE:
-            return ""
-        else:
-            sys.stderr.write(f"Invalid XML:\n{xml}\n")
-            raise ex
+        sys.stderr.write(f"Invalid XML:\n{xml}\n")
+        raise ex
 
 
 def find_test_cases() -> Iterator[ParserTestFiles]:
@@ -60,7 +56,7 @@ def find_test_cases() -> Iterator[ParserTestFiles]:
 @pytest.mark.timeout(10)
 @pytest.mark.parametrize("test_files", find_test_cases(), ids=lambda f: str(f))
 def test_parser(pytestconfig: Config, test_files: ParserTestFiles) -> None:
-    expected_result = canonicalize_possibly_empty(test_files.output.read_text())
+    expected_result = canonicalize(test_files.output.read_text())
 
     proc: subprocess.CompletedProcess[str]
     with test_files.input.open() as file:
@@ -76,6 +72,6 @@ def test_parser(pytestconfig: Config, test_files: ParserTestFiles) -> None:
         sys.stderr.write(proc.stderr + "\n")
     proc.check_returncode()
 
-    processed = canonicalize_possibly_empty(proc.stdout)
+    processed = canonicalize(proc.stdout)
 
     assert expected_result == processed
