@@ -1,0 +1,8 @@
+#<root>
+@tag
+@other-tag abc
+
+#<inner>
+@tag not matched
+#</inner>
+#</root>

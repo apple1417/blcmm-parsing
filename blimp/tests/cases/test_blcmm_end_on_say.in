@@ -1,0 +1,18 @@
+<BLCMM v="1">
+#<!!!You opened a file saved with BLCMM in FilterTool. Please update to BLCMM to properly open this file!!!>
+	<head>
+		<type name="BL2" offline="false"/>
+		<profiles>
+			<profile name="default" current="true"/>
+		</profiles>
+	</head>
+	<body>
+		<category name="root">
+			<comment>@tag</comment>
+			<comment>say this ends parsing</comment>
+			<comment>@other-tag</comment>
+		</category>
+	</body>
+</BLCMM>
+
+#Commands:

@@ -1,0 +1,8 @@
+#<root>
+@tag not matched
+#<some long tag name that includes the word 'description'>
+@tag is matched
+say a b c
+@tag also not matched
+#</some long tag name that includes the word 'description'>
+#</root>

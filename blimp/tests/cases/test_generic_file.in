@@ -1,0 +1,9 @@
+@tag abc
+
+@other-tag def
+@other-tag def
+@tag ghi
+
+set a b c
+
+@tag abc

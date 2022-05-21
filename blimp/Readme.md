@@ -113,10 +113,11 @@ Extracting comments follows a similar process to filtertool files.
         may only happen once. Multiple nested `description` categories are allowed, but conforming
         BLIMP parsers must only recurse into the first.
       - If not, end parsing.
-    - If node is a `comment` tag, add the tag contents to the extracted comment list exactly as is, 
-      preserving whitespace, *and* make sure to add a line seperator if the implementation requires
-      one (since the comment contents won't have one naturally).
-      implementation stores comments
+    - If node is a `comment` tag.
+      - If the comment starts with `say`, or `exec`, end parsing.
+      - Otherwise, add the tag contents to the extracted comment list exactly as is, preserving
+        whitespace, *and* make sure to add a line seperator if the implementation requires one
+        (since the comment contents won't have one naturally).
     - Otherwise, end parsing.
 
    Running out of child nodes without having ended parsing is considered undefined behavior.
@@ -127,7 +128,8 @@ contained within these lines, and their values. This is a quite simple process.
 
 For each comment line:
 1. Strip any trailing newlines. 
-2. Check if the very first character (including whitespace) is a `@`.
+2. Check if the very first character is a `@`. This does *not* allow leading whitespace, any other
+   character at all should escape the tag.
     - If so, it's a tagged line. Look for the first space character.
       - If the space is immediately after the `@`, it's a malformed tag, ignore it.
       - If there is no space, the tag consists of the entirety of the line, with an empty string
@@ -139,7 +141,7 @@ For each comment line:
       Multiples of the same tag are allowed, even with the same value, and must all be added in the
       order they were encontered. These will be stripped in the next step, if applicable.
 
-    - Otherwise, ignore the line, or optionally add it to a list of untagged lines
+    - Otherwise, ignore the line, or optionally add it to a list of untagged lines.
 
 Note that while this process preseves the order of values when multiple of the same tags are used,
 it does not need to preseve the order of differing tags.

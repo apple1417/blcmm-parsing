@@ -1,0 +1,10 @@
+#<root>
+@tag not matched
+#<some long tag name that includes the word 'description'>
+@tag is matched
+#<inner category>
+@tag inner not matched
+#</inner category>
+@tag also not matched
+#</some long tag name that includes the word 'description'>
+#</root>
