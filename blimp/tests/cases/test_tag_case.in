@@ -1,0 +1,7 @@
+@tag ABCDE
+@TAG FGHIJ
+@tAG klmno
+@OTHER-TAG AAAAAAAAAAAAAAAAAAAAAA
+@other-tag aaaaaaaaaaaaaaaaaaaaaa
+
+set a b c

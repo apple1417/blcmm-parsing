@@ -1,0 +1,11 @@
+{
+    "@tag": [
+        "ABCDE",
+        "FGHIJ",
+        "klmno"
+    ],
+    "@other-tag": [
+        "AAAAAAAAAAAAAAAAAAAAAA",
+        "aaaaaaaaaaaaaaaaaaaaaa"
+    ]
+}
