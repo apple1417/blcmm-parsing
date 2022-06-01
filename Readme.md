@@ -30,6 +30,9 @@ The main format differences between BLCMM files and XML can be summarized in the
   multiple or no tags on a single line are considered undefined behaviour.
 - After the closing root tag, the file contains arbitrary commands, which should all be removed or
   converted into XML comments.
+- BLCMM files always use the default system encoding (i.e. CP1252 on Western Europe Windows,
+  generally UTF-8 on Linux). The code points must be preserved, however switching encoding is
+  allowed (as long as the rest of the implementation recognises this). 
 
 Additionally, the handling of any situations which cause BLCMM to fail loading a file may also be
 considered undefined behaviour (though in most cases there will be one obvious way to handle them).
@@ -82,3 +85,6 @@ You can use pytest's standard filtering methods to select which ones to run - us
 ```
 pytest tests -k "edited" --program my_other_parser
 ```
+
+All tests are limited to ASCII, there are no tests for more complex encodings, as relying on the
+system default by definition makes them non-portable.
