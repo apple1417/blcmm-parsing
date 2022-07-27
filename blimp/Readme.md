@@ -42,7 +42,8 @@ format is worked out by checking the first line of if the file:
 - If it starts with `<BLCM`, it's a BLCMM file. This check may be case sensitive in conforming BLIMP
   parsers, but it is not required to be (and is in fact the only check allow case sensitivity).
 - If it starts with `#<`, it's a FilterTool file.
-- Otherwise, it's a generic mod file.
+- Otherwise, it's a generic mod file. Note this can be either a bl2-style mod file *or* a bl3-style
+  hotfix file, the other types only apply to bl2-style.
 
 Each mod format goes through a different process, but they all return a set of comment lines, in the
 order they were encountered, which are to be used by the next step.
@@ -55,13 +56,24 @@ abort handling the given file completely, or whatever else they please.
 Generic mod file comment extraction is the simplest - it's just all the content before the first
 command. This is defined as:
 - For each line in the file in sequence:
-  - Check if the line starts with `set`, `say`, or `exec`. Leading whitespace is allowed.
-    - If it doesn't, it's a comment, add it to the extracted comment list exactly as is -
+  - Check if the line starts with a command - see below. Leading whitespace is allowed.
+    - If it does, end parsing, without extracting the line.
+    - If it doesn't, it's a comment.
+    - Strip leading `#` characters, followed by an optional space - i.e. the regex `#+ ?`. Any other
       whitespace must be preserved.
-    - If it does, it's a command, end parsing, without extracting the line.
+    - Add the stripped line to the extracted comment list.
 
 Parsing reaching the end of the file without finding any commands is considered undefined behaviour,
 though it's suggested to take this as meaning the file isn't actually a mod file.
+
+So what counts as a command? As mentioned above, this type of extraction may be done on both
+bl2-style and bl3-style mod files.
+- In bl2-style files, commands are lines beginning with `set`, `say`, or `exec`.
+- In bl3-style files, commands are lines beginning with `Spark`
+
+As bl3-style hotfix files have strict extension requirements (`.bl3hotfix` or `.wlhotfix`), BLIMP
+parsers may check the extension to only use a subset of the command prefixes. This is not required,
+it it perfectly valid to check all of them against all files.
 
 ### Filtertool Comment Extraction
 Filtertool files have a bit of structure to aid in parsing. Broadly speaking, it's all the content
@@ -171,8 +183,10 @@ Tag Name |  Multiple | Intepretation
 `@license` | First | The mod's licence's name.
 `@license-url` | First | A url to the mod's license.
 `@main-author` | First | Used as the mod's "main author", in place of the first `@author` tag.
+`@nexus` | First | The mod's Nexus Mods url.
 `@screenshot` | Allowed | A url to a screenshot relevant to the mod. Labels can be added by prefixing the url with some text and a pipe `\|` separator.
 `@title` | First | The mod's title.
+`@url` | Allowed | A url relevant to the mod, which doesn't fit into the other categories.
 `@version` | First | The mod's version. Entirely visual, should not be used to enforce version requirements.
 `@video` | First | A url to a video relevant to the mod.
 

@@ -1,0 +1,10 @@
+{
+    "@tag": [
+        "abc",
+        "ghi"
+    ],
+    "@other-tag": [
+        "def",
+        "def"
+    ]
+}
