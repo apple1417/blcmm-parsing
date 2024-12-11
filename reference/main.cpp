@@ -1,8 +1,8 @@
 #include <iostream>
 
-#include "blcmm.hpp"
+#include "blcm_preprocessor.h"
 
 int main(void) {
-    preprocess_blcmm_file(std::cin, std::cout);
+    blcm_preprocessor::preprocess(std::cin, std::cout);
     return 0;
 }
